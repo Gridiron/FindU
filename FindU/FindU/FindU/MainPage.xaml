@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FindU.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" BackgroundColor="Aqua">
+            <StackLayout Orientation="Vertical">
+                <StackLayout.Children>
+                    <Frame  HeightRequest="100"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"
+                            Padding="0">
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="{Binding Image}"/>
+                            </Image.Source>
+                        </Image>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center"
+                                 Padding="20,10,0,10">
+                        <StackLayout.Children>
+                            <Frame CornerRadius="50" 
+                                   HeightRequest="100"
+                                   WidthRequest="100"
+                                   HorizontalOptions="Center"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                <Image HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding Image}"/>
+                                    </Image.Source>
+                                </Image>
+                            </Frame>
+                            <StackLayout Orientation="Vertical"
+                                         Padding="20,10,0,10"
+                                         HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="Center">
+                                <StackLayout.Children>
+                                    <Label Text="{Binding FirstName}"
+                                           FontSize="Medium"/>
+                                    <Label Text="{Binding LastName}"
+                                           FontSize="Medium"/>
+                                </StackLayout.Children>
+                            </StackLayout>
+                        </StackLayout.Children>
+                    </StackLayout>
+                    
+                    <ListView x:Name="navigationDrawerList"
+                          RowHeight="55"
+                          SeparatorVisibility="Default"
+                          BackgroundColor="Aqua"
+                          ItemSelected="OnMenuItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                             Orientation="Horizontal"
+                                             Padding="20,10,0,10"
+                                             Spacing="20">
+                                        <Image Source="{Binding Icon}"
+                                               WidthRequest="40"
+                                               HeightRequest="40"
+                                               VerticalOptions="Start"/>
+                                        <Label Text="{Binding Title}" 
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Label Text="{Binding Footer}"
+                           HeightRequest="40"
+                           Padding="20,10,0,10"/>
+                </StackLayout.Children>
+            </StackLayout>
+            
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
